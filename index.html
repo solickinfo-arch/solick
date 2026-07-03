@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilates Studio | 体を整え、毎日を楽しむピラティス</title>
+
+  <style>
+    :root {
+      --white: #ffffff;
+      --off-white: #f7f7f5;
+      --light-gray: #ececea;
+      --gray: #777777;
+      --dark-gray: #333333;
+      --text: #2f2f2f;
+      --accent: #9a9a92;
+      --border: #ddddda;
+      --max-width: 1080px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(90%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--dark-gray);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    nav a {
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--dark-gray);
+    }
+
+    .menu-button {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 26px;
+      color: var(--dark-gray);
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 72px;
+      background: var(--off-white);
+    }
+
+    .hero-inner {
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .hero-text .label {
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 20px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.35;
+      font-weight: 500;
+      color: var(--dark-gray);
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--gray);
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 34px;
+      border: 1px solid var(--dark-gray);
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--dark-gray);
+      background: transparent;
+      transition: all 0.3s;
+    }
+
+    .button:hover {
+      background: var(--dark-gray);
+      color: var(--white);
+    }
+
+    .hero-image {
+      border-radius: 36px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+
+    .hero-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Common Sections */
+    section {
+      padding: 110px 0;
+    }
+
+    .section-title {
+      margin-bottom: 52px;
+      text-align: center;
+    }
+
+    .section-title span {
+      display: block;
+      font-size: 13px;
+      color: var(--gray);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 500;
+      color: var(--dark-gray);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .image-card {
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--light-gray);
+      aspect-ratio: 4 / 3;
+    }
+
+    .image-card img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .text-block h3 {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--dark-gray);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .text-block p {
+      color: var(--gray);
+      margin-bottom: 18px;
+    }
+
+    /* Concept */
+    .concept {
+      background: var(--white);
+    }
+
+    /* Profile */
+    .profile {
+      background: var(--off-white);
+    }
+
+    .profile-list {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    .profile-list div {
+      display: flex;
+      gap: 18px;
+      padding: 7px 0;
+    }
+
+    .profile-list dt {
+      min-width: 80px;
+      color: var(--dark-gray);
+    }
+
+    /* Activity */
+    .activity {
+      background: var(--white);
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .activity-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 34px 28px;
+    }
+
+    .activity-card .number {
+      font-size: 13px;
+      color: var(--gray);
+      letter-spacing: 0.14em;
+      margin-bottom: 18px;
+    }
+
+    .activity-card h3 {
+      font-size: 21px;
+      font-weight: 500;
+      color: var(--dark-gray);
+      margin-bottom: 16px;
+    }
+
+    .activity-card p {
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    /* Access */
+    .access {
+      background: var(--off-white);
+    }
+
+    .access-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      background: var(--white);
+      border-radius: 28px;
+      padding: 48px;
+      border: 1px solid var(--border);
+    }
+
+    .access-info h3 {
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--dark-gray);
+      margin-bottom: 24px;
+    }
+
+    .access-info dl {
+      display: grid;
+      gap: 16px;
+      color: var(--gray);
+    }
+
+    .access-info div {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .access-info dt {
+      color: var(--dark-gray);
+    }
+
+    .map {
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 320px;
+      background: var(--light-gray);
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-gray);
+      color: var(--white);
+      padding: 56px 0 34px;
+      text-align: center;
+    }
+
+    footer .footer-logo {
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+    }
+
+    footer p {
+      color: #cccccc;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #cccccc;
+      margin-bottom: 32px;
+    }
+
+    .copyright {
+      font-size: 12px;
+      color: #999999;
+    }
+
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Smartphone */
+    @media (max-width: 768px) {
+      .header-inner {
+        height: 64px;
+      }
+
+      .logo {
+        font-size: 17px;
+      }
+
+      nav {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(255,255,255,0.98);
+        border-bottom: 1px solid var(--border);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        padding: 18px 5%;
+        border-top: 1px solid var(--border);
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding: 56px 0 70px;
+      }
+
+      .hero-text {
+        order: 2;
+      }
+
+      .hero-image {
+        order: 1;
+        border-radius: 24px;
+        aspect-ratio: 4 / 3;
+      }
+
+      .hero h1 {
+        margin-bottom: 22px;
+      }
+
+      section {
+        padding: 76px 0;
+      }
+
+      .section-title {
+        margin-bottom: 38px;
+        text-align: left;
+      }
+
+      .two-column,
+      .access-box {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .profile .image-card {
+        order: 1;
+      }
+
+      .profile .text-block {
+        order: 2;
+      }
+
+      .text-block h3 {
+        font-size: 24px;
+      }
+
+      .activity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .access-box {
+        padding: 28px;
+      }
+
+      .access-info div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .map {
+        min-height: 260px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo">Pilates Studio</a>
+
+      <button class="menu-button" id="menuButton" aria-label="メニューを開く">☰</button>
+
+      <nav id="navMenu">
+        <a href="#concept">Concept</a>
+        <a href="#profile">Profile</a>
+        <a href="#activity">Activity</a>
+        <a href="#access">Access</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text fade-in">
+          <div class="label">Body Conditioning Pilates</div>
+          <h1>体を整え、<br>好きなことを<br>もっと楽しむ。</h1>
+          <p>
+            ピラティスは、ただ体を動かすためのものではありません。
+            姿勢や呼吸、体の使い方を見直し、スポーツや趣味、日々の暮らしを
+            より心地よく楽しむためのコンディショニングです。
+          </p>
+          <a href="#access" class="button">予約</a>
+        </div>
+
+        <div class="hero-image fade-in">
+          <img src="C:\Users\uni_s\OneDrive\ドキュメント\hp\images\photo1.jfif" alt="ピラティスで体を整える女性">
+        </div>
+      </div>
+    </section>
+
+    <section class="concept" id="concept">
+      <div class="container">
+        <div class="section-title fade-in">
+          <span>Concept</span>
+          <h2>ピラティスの先にある、健やかな毎日へ。</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="image-card fade-in">
+            <img src="https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&w=1200&q=80" alt="自然の中で深呼吸するイメージ">
+          </div>
+
+          <div class="text-block fade-in">
+            <h3>運動が目的ではなく、<br>動ける体をつくること。</h3>
+            <p>
+              体の不調や疲れやすさは、姿勢や呼吸、日常の小さなクセから生まれることがあります。
+              当スクールでは、無理に鍛えるのではなく、自分の体を丁寧に感じながら整えていきます。
+            </p>
+            <p>
+              ゴルフ、ランニング、登山、旅行、散歩、家事、仕事。
+              それぞれの暮らしや楽しみの中で、体が軽く動くことを目指します。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile" id="profile">
+      <div class="container">
+        <div class="section-title fade-in">
+          <span>Profile</span>
+          <h2>インストラクター紹介</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="text-block fade-in">
+            <h3>一人ひとりの体に合わせて、<br>無理なく続けられるレッスンを。</h3>
+            <p>
+              年齢や運動経験に関係なく、今の体の状態に合わせてレッスンを行います。
+              初めての方にもわかりやすく、安心して体を動かせる時間を大切にしています。
+            </p>
+            <p>
+              「最近疲れやすい」「姿勢が気になる」「趣味をもっと楽しみたい」
+              そんな方に寄り添いながら、健康的な体づくりをサポートします。
+            </p>
+
+            <dl class="profile-list">
+              <div>
+                <dt>Name</dt>
+                <dd>Instructor Name</dd>
+              </div>
+              <div>
+                <dt>License</dt>
+                <dd>ピラティス指導資格 / コンディショニング指導</dd>
+              </div>
+              <div>
+                <dt>Message</dt>
+                <dd>体が整うと、毎日の楽しみ方も変わります。</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="image-card fade-in">
+            <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=1200&q=80" alt="インストラクター写真">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="activity" id="activity">
+      <div class="container">
+        <div class="section-title fade-in">
+          <span>Activity</span>
+          <h2>こんな方におすすめです</h2>
+        </div>
+
+        <div class="activity-grid">
+          <div class="activity-card fade-in">
+            <div class="number">01</div>
+            <h3>姿勢を整えたい</h3>
+            <p>
+              デスクワークや日常のクセで崩れやすい姿勢を、呼吸と動きでやさしく整えていきます。
+            </p>
+          </div>
+
+          <div class="activity-card fade-in">
+            <div class="number">02</div>
+            <h3>趣味を長く楽しみたい</h3>
+            <p>
+              ゴルフ、登山、ランニング、旅行など、好きなことを続けるための体づくりをサポートします。
+            </p>
+          </div>
+
+          <div class="activity-card fade-in">
+            <div class="number">03</div>
+            <h3>運動を無理なく始めたい</h3>
+            <p>
+              激しい運動が苦手な方でも大丈夫。今の体に合わせて、少しずつ整えていきます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="access" id="access">
+      <div class="container">
+        <div class="section-title fade-in">
+          <span>Access</span>
+          <h2>アクセス</h2>
+        </div>
+
+        <div class="access-box fade-in">
+          <div class="access-info">
+            <h3>Pilates Studio</h3>
+
+            <dl>
+              <div>
+                <dt>住所</dt>
+                <dd>大阪府〇〇市〇〇町 1-2-3</dd>
+              </div>
+              <div>
+                <dt>営業時間</dt>
+                <dd>10:00 - 18:00</dd>
+              </div>
+              <div>
+                <dt>定休日</dt>
+                <dd>日曜・祝日</dd>
+              </div>
+              <div>
+                <dt>予約</dt>
+                <dd>完全予約制</dd>
+              </div>
+              <div>
+                <dt>駐車場</dt>
+                <dd>あり / 近隣コインパーキングあり</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps?q=Osaka&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Google Map">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">Pilates Studio</div>
+      <p>体を整え、健康に、好きなことを楽しむ毎日へ。</p>
+
+      <div class="footer-nav">
+        <a href="#concept">Concept</a>
+        <a href="#profile">Profile</a>
+        <a href="#activity">Activity</a>
+        <a href="#access">Access</a>
+      </div>
+
+      <div class="copyright">
+        © Pilates Studio. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navMenu = document.getElementById("navMenu");
+
+    menuButton.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    const navLinks = document.querySelectorAll("nav a");
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+      });
+    });
+
+    const fadeElements = document.querySelectorAll(".fade-in");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
