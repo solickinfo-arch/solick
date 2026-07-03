@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pilates Studio | 体を整え、毎日を楽しむピラティス</title>
+  <title>Body Tuning Solick | 体を整え、毎日を楽しむピラティス</title>
 
   <style>
     :root {
@@ -253,9 +253,62 @@
       color: var(--dark-gray);
     }
 
+    /* Price */
+    .price {
+      background: var(--white);
+    }
+
+    .price-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .price-group + .price-group {
+      margin-top: 54px;
+    }
+
+    .price-group h3 {
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--dark-gray);
+      color: var(--dark-gray);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+    }
+
+    .price-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price-name {
+      color: var(--dark-gray);
+      font-size: 16px;
+    }
+
+    .price-name small,
+    .price-amount small {
+      color: var(--gray);
+      font-size: 13px;
+    }
+
+    .price-name small {
+      margin-left: 8px;
+    }
+
+    .price-amount {
+      flex-shrink: 0;
+      color: var(--dark-gray);
+      font-size: 18px;
+    }
+
     /* Activity */
     .activity {
-      background: var(--white);
+      background: var(--off-white);
     }
 
     .activity-grid {
@@ -292,56 +345,79 @@
 
     /* Access */
     .access {
-      background: var(--off-white);
-    }
-
-    .access-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
       background: var(--white);
-      border-radius: 28px;
-      padding: 48px;
-      border: 1px solid var(--border);
     }
 
-    .access-info h3 {
-      font-size: 26px;
-      font-weight: 500;
-      color: var(--dark-gray);
-      margin-bottom: 24px;
-    }
-
-    .access-info dl {
+    .location-list {
       display: grid;
+      grid-template-columns: 1fr;
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      transform: translateX(-36px);
+    }
+
+    .location-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 16px;
-      color: var(--gray);
-    }
-
-    .access-info div {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 18px;
-      padding-bottom: 16px;
+      padding: 28px 0;
       border-bottom: 1px solid var(--border);
     }
 
-    .access-info dt {
+    .location-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      flex: 0 1 460px;
+      text-align: center;
+    }
+
+    .location-card:first-child {
+      padding-top: 0;
+    }
+
+    .location-card:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .location-card h3 {
+      font-size: 22px;
+      font-weight: 500;
       color: var(--dark-gray);
     }
 
-    .map {
-      border-radius: 22px;
-      overflow: hidden;
-      min-height: 320px;
-      background: var(--light-gray);
+    .location-card address {
+      font-style: normal;
+      color: var(--gray);
+      line-height: 1.8;
     }
 
-    .map iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
+    .location-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 0 0 150px;
+    }
+
+    .location-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border: 1px solid var(--dark-gray);
+      border-radius: 999px;
+      color: var(--dark-gray);
+      font-size: 13px;
+      transition: 0.3s ease;
+    }
+
+    .location-link:hover {
+      background: var(--dark-gray);
+      color: var(--white);
     }
 
     /* Footer */
@@ -350,6 +426,29 @@
       color: var(--white);
       padding: 56px 0 34px;
       text-align: center;
+    }
+
+    .footer-instagram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 18px;
+      border: 1px solid #777777;
+      border-radius: 50%;
+      color: var(--white);
+      transition: 0.3s ease;
+    }
+
+    .footer-instagram:hover {
+      background: var(--white);
+      color: var(--dark-gray);
+    }
+
+    .footer-instagram svg {
+      width: 21px;
+      height: 21px;
     }
 
     footer .footer-logo {
@@ -460,8 +559,7 @@
         text-align: left;
       }
 
-      .two-column,
-      .access-box {
+      .two-column {
         grid-template-columns: 1fr;
         gap: 34px;
       }
@@ -482,17 +580,57 @@
         grid-template-columns: 1fr;
       }
 
-      .access-box {
-        padding: 28px;
+      .location-card {
+        padding: 24px 0;
+        gap: 10px;
       }
 
-      .access-info div {
-        grid-template-columns: 1fr;
-        gap: 4px;
+      .location-list {
+        transform: translateX(-12px);
       }
 
-      .map {
-        min-height: 260px;
+      .location-card h3 {
+        font-size: 18px;
+      }
+
+      .location-card address {
+        font-size: 13px;
+      }
+
+      .location-links {
+        flex-basis: 120px;
+      }
+
+      .location-link {
+        padding: 10px 12px;
+        font-size: 12px;
+      }
+
+      .price-content {
+        padding: 0;
+      }
+
+      .price-group + .price-group {
+        margin-top: 42px;
+      }
+
+      .price-item {
+        align-items: flex-start;
+        gap: 14px;
+        padding: 19px 0;
+      }
+
+      .price-name {
+        font-size: 14px;
+      }
+
+      .price-name small {
+        display: block;
+        margin: 4px 0 0;
+      }
+
+      .price-amount {
+        font-size: 16px;
       }
     }
   </style>
@@ -501,15 +639,16 @@
 <body>
   <header>
     <div class="container header-inner">
-      <a href="#" class="logo">Pilates Studio</a>
+      <a href="#" class="logo">Body Tuning Solick</a>
 
       <button class="menu-button" id="menuButton" aria-label="メニューを開く">☰</button>
 
       <nav id="navMenu">
         <a href="#concept">Concept</a>
         <a href="#profile">Profile</a>
+        <a href="#price">Price</a>
         <a href="#activity">Activity</a>
-        <a href="#access">Access</a>
+        <a href="#access">Place</a>
       </nav>
     </div>
   </header>
@@ -518,18 +657,17 @@
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-text fade-in">
-          <div class="label">Body Conditioning Pilates</div>
-          <h1>体を整え、<br>好きなことを<br>もっと楽しむ。</h1>
+          <div class="label">Body Tuning Solick</div>
+          <h1>体を調律し、<br>心に太陽を。</h1>
           <p>
-            ピラティスは、ただ体を動かすためのものではありません。
-            姿勢や呼吸、体の使い方を見直し、スポーツや趣味、日々の暮らしを
-            より心地よく楽しむためのコンディショニングです。
+            知らないうちに、少しずつバランスを崩してします体と心。<br>
+            「Body Tuning Solick」は、その心身を心地よく調律（チューニング）し、内側から「心に太陽」を満たしていく場所です。
           </p>
-          <a href="#access" class="button">予約</a>
+          <a href="https://lin.ee/UYyf7PP" class="button">予約をする</a>
         </div>
 
         <div class="hero-image fade-in">
-          <img src="\images\photo1.jfif" alt="ピラティスで体を整える女性">
+          <img src="images/photo1.png" alt="ピラティスで体を整える女性">
         </div>
       </div>
     </section>
@@ -538,24 +676,20 @@
       <div class="container">
         <div class="section-title fade-in">
           <span>Concept</span>
-          <h2>ピラティスの先にある、健やかな毎日へ。</h2>
+          <h2>体を整え、好きなことをもっと楽しむ。</h2>
         </div>
 
         <div class="two-column">
           <div class="image-card fade-in">
-            <img src="https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&w=1200&q=80" alt="自然の中で深呼吸するイメージ">
+            <img src="images/photo2.png" alt="自然の中で深呼吸するイメージ">
           </div>
 
           <div class="text-block fade-in">
-            <h3>運動が目的ではなく、<br>動ける体をつくること。</h3>
+            <h3>単に運動をすることが目的ではなく、<br>その先にある「動ける体」をつくること。</h3>
             <p>
-              体の不調や疲れやすさは、姿勢や呼吸、日常の小さなクセから生まれることがあります。
-              当スクールでは、無理に鍛えるのではなく、自分の体を丁寧に感じながら整えていきます。
+              ここで行うピラティスは、ハードな運動をするのではなく、体のこわばりを優しくゆるめて、本来の心地よい状態へリセットしていく時間です。
             </p>
-            <p>
-              ゴルフ、ランニング、登山、旅行、散歩、家事、仕事。
-              それぞれの暮らしや楽しみの中で、体が軽く動くことを目指します。
-            </p>
+           
           </div>
         </div>
       </div>
@@ -583,11 +717,15 @@
             <dl class="profile-list">
               <div>
                 <dt>Name</dt>
-                <dd>Instructor Name</dd>
+                <dd>村田 紗奈江 Sanae Murata</dd>
               </div>
               <div>
                 <dt>License</dt>
-                <dd>ピラティス指導資格 / コンディショニング指導</dd>
+                <dd>
+                  スポーツインストラクター<br>
+                  マットピラティス資格保有<br>
+                  骨盤底ケア指導者
+                </dd>
               </div>
               <div>
                 <dt>Message</dt>
@@ -598,6 +736,49 @@
 
           <div class="image-card fade-in">
             <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=1200&q=80" alt="インストラクター写真">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="price" id="price">
+      <div class="container">
+        <div class="section-title fade-in">
+          <span>Price</span>
+          <h2>料金</h2>
+        </div>
+
+        <div class="price-content fade-in">
+          <div class="price-group">
+            <h3>STUDIO LESSON</h3>
+            <div class="price-item">
+              <div class="price-name">通常グループレッスン <small>（60分）</small></div>
+              <div class="price-amount">¥1,500 <small>（税込）</small></div>
+            </div>
+            <div class="price-item">
+              <div class="price-name">通常グループレッスン 初回体験 <small>（60分）</small></div>
+              <div class="price-amount">¥1,000 <small>（税込）</small></div>
+            </div>
+            <div class="price-item">
+              <div class="price-name">各種イベントレッスン <small>（60分）</small></div>
+              <div class="price-amount">¥2,000〜 <small>（税込）</small></div>
+            </div>
+          </div>
+
+          <div class="price-group">
+            <h3>ONLINE LESSON</h3>
+            <div class="price-item">
+              <div class="price-name">オンライン グループレッスン <small>（50分）</small></div>
+              <div class="price-amount">¥1,000 <small>（税込）</small></div>
+            </div>
+            <div class="price-item">
+              <div class="price-name">オンライン セミパーソナル <small>（2〜4名 / 50分）</small></div>
+              <div class="price-amount">¥2,000 <small>（税込）</small></div>
+            </div>
+            <div class="price-item">
+              <div class="price-name">オンライン パーソナルレッスン <small>（50分）</small></div>
+              <div class="price-amount">¥5,000 <small>（税込）</small></div>
+            </div>
           </div>
         </div>
       </div>
@@ -641,46 +822,54 @@
     <section class="access" id="access">
       <div class="container">
         <div class="section-title fade-in">
-          <span>Access</span>
-          <h2>アクセス</h2>
+          <span>Place</span>
+          <h2>主な活動場所</h2>
         </div>
 
-        <div class="access-box fade-in">
-          <div class="access-info">
-            <h3>Pilates Studio</h3>
+        <div class="location-list">
+          <article class="location-card fade-in">
+            <div class="location-info">
+              <h3>space KAEDE</h3>
+              <address>〒585-0002<br>大阪府南河内郡河南町中641</address>
+            </div>
+            <div class="location-links">
+              <a class="location-link" href="https://www.instagram.com/explore/search/keyword/?q=space%20KAEDE%20河南町" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=大阪府南河内郡河南町中641" target="_blank" rel="noopener noreferrer">Googleマップ</a>
+            </div>
+          </article>
 
-            <dl>
-              <div>
-                <dt>住所</dt>
-                <dd>大阪府〇〇市〇〇町 1-2-3</dd>
-              </div>
-              <div>
-                <dt>営業時間</dt>
-                <dd>10:00 - 18:00</dd>
-              </div>
-              <div>
-                <dt>定休日</dt>
-                <dd>日曜・祝日</dd>
-              </div>
-              <div>
-                <dt>予約</dt>
-                <dd>完全予約制</dd>
-              </div>
-              <div>
-                <dt>駐車場</dt>
-                <dd>あり / 近隣コインパーキングあり</dd>
-              </div>
-            </dl>
-          </div>
+          <article class="location-card fade-in">
+            <div class="location-info">
+              <h3>Brio burger &amp; bicycle</h3>
+              <address>〒586-0036<br>大阪府河内長野市高向977-2</address>
+            </div>
+            <div class="location-links">
+              <a class="location-link" href="https://www.instagram.com/brio_burger_bicycle/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=大阪府河内長野市高向977-2" target="_blank" rel="noopener noreferrer">Googleマップ</a>
+            </div>
+          </article>
 
-          <div class="map">
-            <iframe
-              src="https://www.google.com/maps?q=Osaka&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Google Map">
-            </iframe>
-          </div>
+          <article class="location-card fade-in">
+            <div class="location-info">
+              <h3>南向山 西方院</h3>
+              <address>〒583-0921<br>大阪府南河内郡太子町太子1663</address>
+            </div>
+            <div class="location-links">
+              <a class="location-link" href="https://www.instagram.com/explore/search/keyword/?q=南向山%20西方院" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=大阪府南河内郡太子町太子1663" target="_blank" rel="noopener noreferrer">Googleマップ</a>
+            </div>
+          </article>
+
+          <article class="location-card fade-in">
+            <div class="location-info">
+              <h3>en.undertemple『旧松中亭』</h3>
+              <address>〒586-0053<br>大阪府河内長野市寺元374</address>
+            </div>
+            <div class="location-links">
+              <a class="location-link" href="https://www.instagram.com/en.undertemple/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=大阪府河内長野市寺元374" target="_blank" rel="noopener noreferrer">Googleマップ</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -688,12 +877,25 @@
 
   <footer>
     <div class="container">
-      <div class="footer-logo">Pilates Studio</div>
+      <a
+        class="footer-instagram"
+        href="https://www.instagram.com/sanae_bodybalance/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="sanae bodybalanceのInstagramを見る">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+      <div class="footer-logo">Body Tuning Solick</div>
       <p>体を整え、健康に、好きなことを楽しむ毎日へ。</p>
 
       <div class="footer-nav">
         <a href="#concept">Concept</a>
         <a href="#profile">Profile</a>
+        <a href="#price">Price</a>
         <a href="#activity">Activity</a>
         <a href="#access">Access</a>
       </div>
